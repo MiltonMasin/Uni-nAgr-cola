@@ -98,6 +98,11 @@ header::before {
     color: black;
   }
 
+  .navbar.scrolled {
+    color: #000000; /* Cambia el color del texto a negro cuando la clase "scrolled" está presente */
+  }
+  
+
 
   /*FOOTER*/
   #page-footer {
@@ -167,6 +172,10 @@ header::before {
             a {
                 text-decoration: none;
                 color: white;
+                &:hover {
+                  transform: scale(0.1);
+                  color: rgb(173, 173, 173);
+              }
             }
         }
     }
@@ -264,31 +273,57 @@ img {
 
 
 /*SECTION*/
-.acordeon{
+.acordeon {
   display: flex;
-  width: 100%; /* Ocupar todo el ancho de la pantalla */
-  overflow-x: auto;
+  width: 100%;
+  overflow: hidden; /* Cambiar a "hidden" para ocultar el desplazamiento horizontal */
   margin-top: 20px;
   margin-bottom: 20px;
   border-top: 10px solid red; 
   border-bottom: 10px solid red; 
   box-sizing: border-box; 
 }
-.acordeon img{
+
+.acordeon .imagen {
+  position: relative;
+  flex: 1;
   margin-left: 10px;
-  width: 200px;
-  flex-grow: 1;
-  object-fit: cover;
-  opacity: .8;
-  margin-right: 0;
-  transition: width 0.5s ease;
+  margin-right: 10px;
+  overflow: hidden;
+  height: 400px; /* Ajusta la altura según tus necesidades */
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.acordeon img:hover{
-  cursor: pointer;
-  width: 210px;
-  opacity: 1;
+.acordeon h3 {
+  z-index: 1;
+  margin: 0;
+  font-size: 20px;
+}
+
+.acordeon .imagen:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
   filter: contrast(120%);
+}
+
+.acordeon .imagen:hover h3 {
+  opacity: 1;
+}
+
+.acordeon .imagen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
 }
 
 

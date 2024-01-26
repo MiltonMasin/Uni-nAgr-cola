@@ -38,14 +38,10 @@ window.addEventListener("scroll", function () {
     var logoImg = navBar.querySelector(".navbar-brand img");
   
     // Cambiar el color de fondo y el logo del navbar al hacer scroll
-    if (window.scrollY > 0) {
-      navBar.style.transition = "background-color 0.3s ease"; // Agrega transición suave al cambio de color
-      navBar.style.backgroundColor = "#ffffff"; // Cambia el fondo a blanco al hacer scroll
+    if (window.scrollY > 0) {    
       logoImg.src = "images/logo2-uaa-color.png"; // Cambia la fuente de la imagen del logo al hacer scroll
       logoImg.style.maxHeight = "50px"; // Ajusta el tamaño del logo al hacer scroll
     } else {
-      navBar.style.transition = "background-color 0.3s ease"; // Agrega transición suave al cambio de color
-      navBar.style.backgroundColor = "transparent"; // Fondo transparente si no hay scroll
       logoImg.src = "images/logo-uaa-blanco.png"; // Restaura la fuente original del logo
       logoImg.style.maxHeight = "40px"; // Restaura el tamaño original del logo
     }
